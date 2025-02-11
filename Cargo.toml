@@ -18,11 +18,11 @@ cosmic-files = { git = "https://github.com/pop-os/cosmic-files", default-feature
     "gvfs",
     "wayland",
 ] }
-cosmic-protocols = { git = "https://github.com/pop-os/cosmic-protocols", rev = "29ab323" }
-cosmic-client-toolkit = { git = "https://github.com/pop-os/cosmic-protocols", rev = "29ab323" }
+cosmic-protocols = { git = "https://github.com/pop-os/cosmic-protocols", rev = "d218c76" }
+cosmic-client-toolkit = { git = "https://github.com/pop-os/cosmic-protocols", rev = "d218c76" }
 futures = "0.3"
 image = "0.25"
-libcosmic = { git = "https://github.com/pop-os/libcosmic", features = [
+libcosmic = { git = "https://github.com/pop-os/libcosmic", default-features = false, features = [
     "autosize",
     "winit",
     "multi-window",
@@ -53,7 +53,11 @@ gbm = "0.15.0"
 wayland-protocols = "0.32.1"
 env_logger = "0.11.3"
 dirs = "5.0.1"
-chrono = "0.4"
+time = { version = "0.3.31", features = [
+    "local-offset",
+    "formatting",
+    "macros",
+] }
 url = "2.5"
 # i18n
 i18n-embed = { version = "0.14.1", features = [
@@ -86,5 +90,4 @@ clap = { version = "4.5.9", features = ["derive"] }
 # sctk = { package = "smithay-client-toolkit", git = "https://github.com/smithay/client-toolkit//", rev = "3bed072" }
 
 [profile.release]
-opt-level = 3
-lto = "thin"
+debug = true
